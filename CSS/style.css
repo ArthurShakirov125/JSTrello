@@ -24,4 +24,17 @@
     width: 99%;
     height: 1000px;
     margin-top: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.list{
+    min-width: 200px;
+    height: fit-content;
+    padding-left: 10px;
+    border: aqua solid 1px;
+    border-radius: 100px;
+    background-color: aqua;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    margin-left: 20px;
+
 }
