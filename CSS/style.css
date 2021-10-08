@@ -1,0 +1,27 @@
+#new-list{
+    border: blue 2px solid;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 15px;
+    width: 300px;
+    height: 200px;
+}
+#list-name{
+    width:60%;
+}
+#btn-create-list{
+    width: 30%;
+    height: 40px;
+    background-color: aqua;
+    color: white;
+}
+#desk{
+    display: flex;
+    border: aqua 2px solid;
+    border-radius: 20px;
+    width: 99%;
+    height: 1000px;
+    margin-top: 20px;
+}
