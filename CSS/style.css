@@ -1,3 +1,7 @@
+button{
+    border: none;
+    border-radius: 15px;
+}
 #new-list{
     border: blue 2px solid;
     border-radius: 20px;
@@ -14,12 +18,12 @@
 #btn-create-list{
     width: 30%;
     height: 40px;
-    background-color: aqua;
+    background-color: blue;
     color: white;
 }
 #desk{
     display: flex;
-    border: aqua 2px solid;
+    border: blue 2px solid;
     border-radius: 20px;
     width: 99%;
     height: 1000px;
@@ -27,13 +31,26 @@
     padding-left: 10px;
     padding-top: 10px;
 }
+#clear_desk{
+    position: absolute;
+    left: 85%;
+    top: 50px;
+    width: 150px;
+    height: 25px;
+    color: white;
+    background-color: blue;
+}
 .list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     min-width: 200px;
-    height: fit-content;
+    height: 40px;
     padding-left: 10px;
-    border: aqua solid 1px;
+    padding-right: 5px;
+    border: blue solid 1px;
     border-radius: 100px;
-    background-color: aqua;
+    background-color: white;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
     margin-left: 20px;
 
