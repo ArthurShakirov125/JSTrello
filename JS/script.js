@@ -6,10 +6,11 @@ const inputListName = document.querySelector("#list-name");
 
 function EditList(e){
     if(e.target.classList.contains("edit-list")){
-        let list = e.target.firstElementChild();
-        let h2 = list.firstElementChild();
-        h2.setAttribute("contenteditable", "true");
+        let list = e.target.querySelector(".list");
+        let h2 = list.querySelector("h2");
+        h2.setAttribute("contenteditable","true");
         h2.focus();
+
     }
 }
 function AddList() {
