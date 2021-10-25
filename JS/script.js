@@ -4,15 +4,8 @@ let counter = 1;
 const clearBtn = document.querySelector("#clear_desk");
 const inputListName = document.querySelector("#list-name");
 
-function EditList(e){
-    if(e.target.classList.contains("edit-list")){
-        let list = e.target.querySelector(".list");
-        let h2 = list.querySelector("h2");
-        h2.setAttribute("contenteditable","true");
-        h2.focus();
 
-    }
-}
+
 function AddList() {
     let list = document.createElement("div");
     list.classList.add("list");
@@ -33,20 +26,43 @@ function AddList() {
     desk.append(list);
 }
 
+function EditList(e) {
+    if (e.target.classList.contains("edit-list")) {
+        let list = e.target.querySelector(".list");
+        let h2 = list.querySelector("h2");
+        h2.setAttribute("contenteditable", "true");
+        h2.focus();
+
+    }
+}
+
+btnCreateList.addEventListener("click", AddList);
+
 inputListName.addEventListener("keydown", e => {
-    if(e.key == "Enter"){
+    if (e.key == "Enter") {
         btnCreateList.click();
     }
- }
+}
 );
 
 clearBtn.addEventListener("click", function () {
     desk.innerHTML = null;
     counter = 1;
-})
+});
 
+desk.addEventListener("click", e => {
+    let obj = e.target;
+    if(obj.classList.contains("edit-list")){
+        console.log(obj);
+        let list = obj.parentNode;
+        console.log(list)
+        let list_text = list.querySelector("h2");
+        console.log(list_text);
+        list_text.setAttribute("contenteditable","true");
+        list_text.focus();
+        
+    }
+});
 
-desk.addEventListener("click", EditList);
-btnCreateList.addEventListener("click", AddList);
 
 
