@@ -9,31 +9,62 @@ const inputListName = document.querySelector("#list-name");
 function AddList() {
     let list = document.createElement("div");
     list.classList.add("list");
+    let list_content = document.createElement("div");
+    list_content.classList.add("list_content");
+    list.append(list_content);
+
     let listName = document.getElementById("list-name").value;
     let h2 = document.createElement("H2");
     if (listName == "") {
         listName = "New list " + counter;
         counter++;
     }
+
     h2.innerHTML = listName;
-    list.append(h2);
-    let img = document.createElement("img");
-    img.setAttribute("src", "img/pen-solid.svg");
-    img.setAttribute("alt", "redact list name");
-    img.setAttribute("width", "30px");
-    img.classList.add("edit-list");
-    list.append(img);
+    list_content.append(h2);
+    let edit_img = document.createElement("img");
+    edit_img.setAttribute("src", "img/pen-solid.svg");
+    edit_img.setAttribute("alt", "redact list name");
+    edit_img.setAttribute("width", "30px");
+    edit_img.classList.add("edit-list");
+    list_content.append(edit_img);
+
+    let delete_button_img = document.createElement("img");
+    delete_button_img.setAttribute("src", "img/delete.svg");
+    delete_button_img.setAttribute("alt", "redact list name");
+    delete_button_img.setAttribute("width", "20px");
+    delete_button_img.classList.add("delete-list");
+    list_content.append(delete_button_img);
+
+    let add_card_text = document.createElement("p");
+    add_card_text.innerHTML = "+ add card";
+    add_card_text.classList.add("add_card");
+    list.append(add_card_text);
+    
     desk.append(list);
 }
 
 function EditList(e) {
-    if (e.target.classList.contains("edit-list")) {
-        let list = e.target.querySelector(".list");
-        let h2 = list.querySelector("h2");
-        h2.setAttribute("contenteditable", "true");
-        h2.focus();
-
-    }
+        let obj = e.target;
+        if(obj.classList.contains("edit-list")){
+            let list = obj.parentNode.parentNode;
+            let list_text = list.querySelector("h2");
+            list_text.setAttribute("contenteditable","true");
+            list_text.focus();
+        }
+        if(obj.classList.contains("delete-list")){
+            obj.parentNode.parentNode.remove();
+        }
+        if(obj.classList.contains("add_card")){
+            let card = document.createElement("div");
+            card.classList.add("card");
+            card.innerHTML = "<textarea></textarea> <p class='delete_card'>X</p>";
+            obj.append(card);
+        }
+        if(obj.classList.contains("delete_card")){
+            console.log("кнопка удалить карточку X" + obj);
+            obj.parentNode.remove();
+        }
 }
 
 btnCreateList.addEventListener("click", AddList);
@@ -50,19 +81,7 @@ clearBtn.addEventListener("click", function () {
     counter = 1;
 });
 
-desk.addEventListener("click", e => {
-    let obj = e.target;
-    if(obj.classList.contains("edit-list")){
-        console.log(obj);
-        let list = obj.parentNode;
-        console.log(list)
-        let list_text = list.querySelector("h2");
-        console.log(list_text);
-        list_text.setAttribute("contenteditable","true");
-        list_text.focus();
-        
-    }
-});
+desk.addEventListener("click", EditList);
 
 
 

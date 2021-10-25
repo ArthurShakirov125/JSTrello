@@ -26,7 +26,6 @@ button{
     border: blue 2px solid;
     border-radius: 20px;
     width: 99%;
-    height: 1000px;
     margin-top: 20px;
     padding-left: 10px;
     padding-top: 10px;
@@ -41,17 +40,27 @@ button{
     background-color: blue;
 }
 .list{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     min-width: 200px;
-    height: 40px;
-    padding-left: 10px;
-    padding-right: 5px;
+    min-height: 150px;
     border: blue solid 1px;
-    border-radius: 100px;
     background-color: white;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    margin-left: 20px;
-
+    padding-left: 10px;
+    margin-right: 15px;
+}
+.list_content{
+    display: flex;
+    justify-content: space-between;
+}
+.card{
+    height: 50px;
+    margin-bottom: 10px;
+}
+.add_card{
+    margin-top: -10px;
+}
+.delete_card{
+    position: relative;
+    right: -170px;
+    top: -70px;
 }
